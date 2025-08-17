@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquashine Car Wash - Premium Doorstep Car Wash in Castomar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        .booking-form {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease;
+        }
+        .status-pending { background-color: #fef3c7; color: #92400e; }
+        .status-confirmed { background-color: #d1fae5; color: #065f46; }
+        .status-completed { background-color: #dbeafe; color: #1e40af; }
+        .status-cancelled { background-color: #fee2e2; color: #991b1b; }
+        .page { display: none; }
+        .page.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- CUSTOMER WEBSITE -->
+    <div id="customer-site" class="page active">
+        <!-- Header -->
+        <header class="gradient-bg text-white shadow-lg">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                            <img src="https://photos.app.goo.gl/2HMuhChkx4tTStUPA" alt="Aquashine Logo" class="w-10 h-10 object-contain">
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold">Aquashine Car Wash</h1>
+                            <p class="text-blue-100 text-sm">Premium Doorstep Service</p>
+                        </div>
+                    </div>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#services" class="hover:text-blue-200 transition">Services</a>
+                        <a href="#booking" class="hover:text-blue-200 transition">Book Now</a>
+                        <a href="#contact" class="hover:text-blue-200 transition">Contact</a>
+                        <button onclick="showAdminLogin()" class="bg-white bg-opacity-20 px-4 py-2 rounded-lg text-sm hover:bg-opacity-30 transition">
+                            Admin
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold mb-6">Premium Car Wash at Your Doorstep</h2>
+                <p class="text-xl mb-8 text-blue-100">Professional car washing service in Castomar - We come to you!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#booking" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">Book Service Now</a>
+                    <a href="#services" class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">View Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Our Services</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="service-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4">✨</div>
+                        <h4 class="text-xl font-bold mb-4 text-gray-800">Basic Wash</h4>
+                        <p class="text-gray-600 mb-4">Exterior wash, tire cleaning, and basic interior vacuum</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">₹499</div>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Exterior hand wash</li>
+                            <li>• Tire & rim cleaning</li>
+                            <li>• Interior vacuum</li>
+                            <li>• Window cleaning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4">🌟</div>
+                        <h4 class="text-xl font-bold mb-4 text-gray-800">Premium Wash</h4>
+                        <p class="text-gray-600 mb-4">Complete wash with wax protection and interior detailing</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">₹999</div>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Everything in Basic</li>
+                            <li>• Wax protection</li>
+                            <li>• Interior detailing</li>
+                            <li>• Dashboard polish</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4">💎</div>
+                        <h4 class="text-xl font-bold mb-4 text-gray-800">Deluxe Detail</h4>
+                        <p class="text-gray-600 mb-4">Full detailing service with premium products</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-4">₹1,499</div>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• Everything in Premium</li>
+                            <li>• Paint protection</li>
+                            <li>• Leather conditioning</li>
+                            <li>• Engine bay cleaning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Book Your Service</h3>
+                <div class="max-w-2xl mx-auto">
+                    <div class="booking-form bg-white p-8 rounded-xl">
+                        <form id="bookingForm">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                                    <input type="text" id="customerName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your full name" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                                    <input type="tel" id="customerPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your phone number" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-semibold mb-2">Address in Castomar</label>
+                                <textarea id="customerAddress" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="Your complete address in Castomar" required></textarea>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Service Type</label>
+                                    <select id="serviceType" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                        <option value="">Select a service</option>
+                                        <option value="basic">Basic Wash - ₹499</option>
+                                        <option value="premium">Premium Wash - ₹999</option>
+                                        <option value="deluxe">Deluxe Detail - ₹1,499</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Preferred Date</label>
+                                    <input type="date" id="serviceDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-semibold mb-2">Preferred Time</label>
+                                <select id="serviceTime" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                    <option value="">Select time slot</option>
+                                    <option value="9am">9:00 AM - 11:00 AM</option>
+                                    <option value="11am">11:00 AM - 1:00 PM</option>
+                                    <option value="1pm">1:00 PM - 3:00 PM</option>
+                                    <option value="3pm">3:00 PM - 5:00 PM</option>
+                                    <option value="5pm">5:00 PM - 7:00 PM</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-semibold mb-2">Special Instructions (Optional)</label>
+                                <textarea id="specialInstructions" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="Any special requests or instructions"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full gradient-bg text-white py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                                Book My Service Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Why Choose Aquashine?</h3>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🚗</div>
+                        <h4 class="font-bold mb-2">Doorstep Service</h4>
+                        <p class="text-gray-600">We come to your location in Castomar</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">⭐</div>
+                        <h4 class="font-bold mb-2">Premium Quality</h4>
+                        <p class="text-gray-600">Professional grade products and equipment</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">💧</div>
+                        <h4 class="font-bold mb-2">Eco-Friendly</h4>
+                        <p class="text-gray-600">Biodegradable soaps and water conservation</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">⏰</div>
+                        <h4 class="font-bold mb-2">Flexible Timing</h4>
+                        <p class="text-gray-600">Book at your convenient time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 gradient-bg text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-4xl font-bold mb-8">Contact Aquashine Car Wash</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="text-3xl mb-4">📞</div>
+                        <h4 class="font-bold mb-2">Call Us</h4>
+                        <p class="text-blue-100">+91 98765 43210</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-4">📧</div>
+                        <h4 class="font-bold mb-2">Email</h4>
+                        <p class="text-blue-100">info@aquashinecarwash.com</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-4">📍</div>
+                        <h4 class="font-bold mb-2">Service Area</h4>
+                        <p class="text-blue-100">Castomar & Surrounding Areas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-6 text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                        <span class="text-lg">🚗</span>
+                    </div>
+                    <span class="text-xl font-bold">Aquashine Car Wash</span>
+                </div>
+                <p class="text-gray-400 mb-4">Premium doorstep car wash service in Castomar</p>
+                <p class="text-gray-500 text-sm">&copy; 2024 Aquashine Car Wash. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl max-w-md mx-4 w-full">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800 text-center">Admin Login</h3>
+            <form id="adminLoginForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Username</label>
+                    <input type="text" id="adminUsername" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Enter username" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Password</label>
+                    <input type="password" id="adminPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Enter password" required>
+                </div>
+                <div class="flex space-x-4">
+                    <button type="submit" class="flex-1 gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">
+                        Login
+                    </button>
+                    <button type="button" onclick="closeAdminLogin()" class="flex-1 bg-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-400 transition">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+            <p class="text-sm text-gray-500 mt-4 text-center">Demo: admin / admin123</p>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="admin-site" class="page">
+        <!-- Admin Header -->
+        <header class="gradient-bg text-white shadow-lg">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-xl">🚗</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold">Aquashine Admin</h1>
+                            <p class="text-blue-100 text-sm">Dashboard</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm">Welcome, Admin</span>
+                        <button onclick="logoutAdmin()" class="bg-white bg-opacity-20 px-4 py-2 rounded-lg text-sm hover:bg-opacity-30 transition">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="bg-white shadow-sm border-b">
+            <div class="container mx-auto px-6">
+                <nav class="flex space-x-8">
+                    <button onclick="showAdminTab('dashboard')" id="admin-tab-dashboard" class="admin-tab-btn py-4 px-2 border-b-2 border-blue-500 text-blue-600 font-medium">
+                        Dashboard
+                    </button>
+                    <button onclick="showAdminTab('bookings')" id="admin-tab-bookings" class="admin-tab-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                        Bookings
+                    </button>
+                    <button onclick="showAdminTab('customers')" id="admin-tab-customers" class="admin-tab-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                        Customers
+                    </button>
+                    <button onclick="showAdminTab('reports')" id="admin-tab-reports" class="admin-tab-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                        Reports
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard Content -->
+        <div id="admin-dashboard-content" class="admin-tab-content">
+            <div class="container mx-auto px-6 py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Dashboard Overview</h2>
+                
+                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Today's Bookings</p>
+                                <p class="text-2xl font-bold text-gray-800" id="todayBookings">0</p>
+                            </div>
+                            <div class="text-3xl">📅</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Today's Revenue</p>
+                                <p class="text-2xl font-bold text-green-600" id="todayRevenue">₹0</p>
+                            </div>
+                            <div class="text-3xl">💰</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Pending Bookings</p>
+                                <p class="text-2xl font-bold text-orange-600" id="pendingBookings">0</p>
+                            </div>
+                            <div class="text-3xl">⏳</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Total Customers</p>
+                                <p class="text-2xl font-bold text-blue-600" id="totalCustomers">0</p>
+                            </div>
+                            <div class="text-3xl">👥</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Bookings -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Recent Bookings</h3>
+                    <div id="recentBookingsList" class="space-y-4">
+                        <p class="text-gray-500 text-center py-8">No bookings yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Bookings Content -->
+        <div id="admin-bookings-content" class="admin-tab-content hidden">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Manage Bookings</h2>
+                    <div class="flex space-x-4">
+                        <select id="statusFilter" class="px-4 py-2 border border-gray-300 rounded-lg">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <button onclick="exportBookings()" class="gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90">
+                            Export CSV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Service</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date & Time</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Address</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200" id="bookingsTableBody">
+                                <tr>
+                                    <td colspan="7" class="px-6 py-8 text-center text-gray-500">No bookings found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Customers Content -->
+        <div id="admin-customers-content" class="admin-tab-content hidden">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Customer Management</h2>
+                    <div class="flex space-x-4">
+                        <input type="text" id="customerSearch" placeholder="Search customers..." class="px-4 py-2 border border-gray-300 rounded-lg">
+                        <button onclick="exportCustomers()" class="gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90">Export List</button>
+                    </div>
+                </div>
+
+                <div id="customersGrid" class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center py-12 col-span-3">
+                        <p class="text-gray-500">No customers found</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Reports Content -->
+        <div id="admin-reports-content" class="admin-tab-content hidden">
+            <div class="container mx-auto px-6 py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Business Reports</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Revenue Summary</h3>
+                        <div class="space-y-4" id="revenueSummary">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Today</span>
+                                <span class="font-bold text-green-600">₹0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">This Week</span>
+                                <span class="font-bold text-green-600">₹0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">This Month</span>
+                                <span class="font-bold text-green-600">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Service Popularity</h3>
+                        <div class="space-y-4" id="serviceStats">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Basic Wash</span>
+                                <span class="text-sm font-medium">0%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Premium Wash</span>
+                                <span class="text-sm font-medium">0%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Deluxe Detail</span>
+                                <span class="text-sm font-medium">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl max-w-md mx-4">
+            <div class="text-center">
+                <div class="text-6xl mb-4">✅</div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">Booking Confirmed!</h3>
+                <p class="text-gray-600 mb-6">Thank you for choosing Aquashine Car Wash! We'll contact you shortly to confirm your appointment details.</p>
+                <button onclick="closeModal()" class="gradient-bg text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let bookings = JSON.parse(localStorage.getItem('aquashine_bookings') || '[]');
+        let customers = JSON.parse(localStorage.getItem('aquashine_customers') || '[]');
+        let currentBookingId = parseInt(localStorage.getItem('aquashine_booking_id') || '1');
+
+        // Service prices
+        const servicePrices = {
+            'basic': 499,
+            'premium': 999,
+            'deluxe': 1499
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('serviceDate').min = today;
+            
+            // Update admin dashboard
+            updateDashboardStats();
+            updateRecentBookings();
+            updateBookingsTable();
+            updateCustomersGrid();
+            updateReports();
+        });
+
+        // Customer booking form
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                id: currentBookingId++,
+                name: document.getElementById('customerName').value,
+                phone: document.getElementById('customerPhone').value,
+                address: document.getElementById('customerAddress').value,
+                service: document.getElementById('serviceType').value,
+                date: document.getElementById('serviceDate').value,
+                time: document.getElementById('serviceTime').value,
+                instructions: document.getElementById('specialInstructions').value,
+                status: 'pending',
+                createdAt: new Date().toISOString(),
+                amount: servicePrices[document.getElementById('serviceType').value]
+            };
+            
+            // Save booking
+            bookings.push(formData);
+            localStorage.setItem('aquashine_bookings', JSON.stringify(bookings));
+            localStorage.setItem('aquashine_booking_id', currentBookingId.toString());
+            
+            // Add/update customer
+            const existingCustomer = customers.find(c => c.phone === formData.phone);
+            if (existingCustomer) {
+                existingCustomer.totalBookings++;
+                existingCustomer.totalSpent += formData.amount;
+                existingCustomer.lastService = formData.date;
+            } else {
+                customers.push({
+                    name: formData.name,
+                    phone: formData.phone,
+                    address: formData.address,
+                    totalBookings: 1,
+                    totalSpent: formData.amount,
+                    lastService: formData.date,
+                    joinedAt: new Date().toISOString()
+                });
+            }
+            localStorage.setItem('aquashine_customers', JSON.stringify(customers));
+            
+            // Show confirmation
+            document.getElementById('confirmationModal').classList.remove('hidden');
+            document.getElementById('confirmationModal').classList.add('flex');
+            
+            // Reset form
+            this.reset();
+            
+            // Update admin dashboard if open
+            updateDashboardStats();
+            updateRecentBookings();
+            updateBookingsTable();
+            updateCustomersGrid();
+            updateReports();
+        });
+
+        function closeModal() {
+            document.getElementById('confirmationModal').classList.add('hidden');
+            document.getElementById('confirmationModal').classList.remove('flex');
+        }
+
+        // Admin functions
+        function showAdminLogin() {
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+            document.getElementById('adminLoginModal').classList.add('flex');
+        }
+
+        function closeAdminLogin() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+            document.getElementById('adminLoginModal').classList.remove('flex');
+            document.getElementById('adminLoginForm').reset();
+        }
+
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            // Simple authentication (in real app, use proper authentication)
+            if (username === 'admin' && password === 'admin123') {
+                closeAdminLogin();
+                showPage('admin-site');
+                showAdminTab('dashboard');
+            } else {
+                alert('Invalid credentials. Use admin/admin123');
+            }
+        });
+
+        function logoutAdmin() {
+            showPage('customer-site');
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function showAdminTab(tabName) {
+            // Hide all admin tab contents
+            document.querySelectorAll('.admin-tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active state from all admin tabs
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'text-blue-600');
+                btn.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            // Show selected admin tab content
+            document.getElementById('admin-' + tabName + '-content').classList.remove('hidden');
+            
+            // Add active state to selected admin tab
+            const activeTab = document.getElementById('admin-tab-' + tabName);
+            activeTab.classList.remove('border-transparent', 'text-gray-500');
+            activeTab.classList.add('border-blue-500', 'text-blue-600');
+        }
+
+        function updateDashboardStats() {
+            const today = new Date().toISOString().split('T')[0];
+            const todayBookings = bookings.filter(b => b.date === today);
+            const pendingBookings = bookings.filter(b => b.status === 'pending');
+            const todayRevenue = todayBookings.reduce((sum, b) => sum + b.amount, 0);
+            
+            document.getElementById('todayBookings').textContent = todayBookings.length;
+            document.getElementById('todayRevenue').textContent = '₹' + todayRevenue.toLocaleString();
+            document.getElementById('pendingBookings').textContent = pendingBookings.length;
+            document.getElementById('totalCustomers').textContent = customers.length;
+        }
+
+        function updateRecentBookings() {
+            const recentBookings = bookings.slice(-5).reverse();
+            const container = document.getElementById('recentBookingsList');
+            
+            if (recentBookings.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-8">No bookings yet</p>';
+                return;
+            }
+            
+            container.innerHTML = recentBookings.map(booking => `
+                <div class="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
+                    <div class="text-2xl">${booking.status === 'pending' ? '🆕' : booking.status === 'completed' ? '✅' : '📅'}</div>
+                    <div class="flex-1">
+                        <p class="font-medium">${booking.status === 'pending' ? 'New booking from' : 'Service for'} ${booking.name}</p>
+                        <p class="text-sm text-gray-600">${getServiceName(booking.service)} - ₹${booking.amount} • ${formatDate(booking.createdAt)}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateBookingsTable() {
+            const tbody = document.getElementById('bookingsTableBody');
+            
+            if (bookings.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-8 text-center text-gray-500">No bookings found</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = bookings.map(booking => `
+                <tr>
+                    <td class="px-6 py-4">
+                        <div>
+                            <p class="font-medium text-gray-900">${booking.name}</p>
+                            <p class="text-sm text-gray-500">${booking.phone}</p>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-900">${getServiceName(booking.service)}</td>
+                    <td class="px-6 py-4 text-sm text-gray-900">
+                        <div>
+                            <p>${formatDate(booking.date)}</p>
+                            <p class="text-gray-500">${getTimeSlot(booking.time)}</p>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-500">${booking.address}</td>
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900">₹${booking.amount}</td>
+                    <td class="px-6 py-4">
+                        <span class="status-${booking.status} px-2 py-1 text-xs font-medium rounded-full">${booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}</span>
+                    </td>
+                    <td class="px-6 py-4 text-sm">
+                        ${getActionButtons(booking)}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateCustomersGrid() {
+            const container = document.getElementById('customersGrid');
+            
+            if (customers.length === 0) {
+                container.innerHTML = '<div class="text-center py-12 col-span-3"><p class="text-gray-500">No customers found</p></div>';
+                return;
+            }
+            
+            container.innerHTML = customers.map(customer => `
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <span class="text-xl">👤</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">${customer.name}</h3>
+                            <p class="text-sm text-gray-600">${customer.phone}</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <p><span class="font-medium">Address:</span> ${customer.address}</p>
+                        <p><span class="font-medium">Total Bookings:</span> ${customer.totalBookings}</p>
+                        <p><span class="font-medium">Total Spent:</span> ₹${customer.totalSpent.toLocaleString()}</p>
+                        <p><span class="font-medium">Last Service:</span> ${formatDate(customer.lastService)}</p>
+                    </div>
+                    <div class="mt-4 flex space-x-2">
+                        <button onclick="viewCustomerHistory('${customer.phone}')" class="text-blue-600 hover:text-blue-800 text-sm">View History</button>
+                        <button onclick="contactCustomer('${customer.phone}')" class="text-green-600 hover:text-green-800 text-sm">Contact</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateReports() {
+            // Revenue summary
+            const today = new Date();
+            const todayStr = today.toISOString().split('T')[0];
+            const weekStart = new Date(today.setDate(today.getDate() - today.getDay())).toISOString().split('T')[0];
+            const monthStart = new Date(today.getFullYear(), today.getMonth(), 1).toISOString().split('T')[0];
+            
+            const todayRevenue = bookings.filter(b => b.date === todayStr).reduce((sum, b) => sum + b.amount, 0);
+            const weekRevenue = bookings.filter(b => b.date >= weekStart).reduce((sum, b) => sum + b.amount, 0);
+            const monthRevenue = bookings.filter(b => b.date >= monthStart).reduce((sum, b) => sum + b.amount, 0);
+            
+            document.getElementById('revenueSummary').innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600">Today</span>
+                    <span class="font-bold text-green-600">₹${todayRevenue.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600">This Week</span>
+                    <span class="font-bold text-green-600">₹${weekRevenue.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600">This Month</span>
+                    <span class="font-bold text-green-600">₹${monthRevenue.toLocaleString()}</span>
+                </div>
+            `;
+            
+            // Service stats
+            const totalBookings = bookings.length;
+            const basicCount = bookings.filter(b => b.service === 'basic').length;
+            const premiumCount = bookings.filter(b => b.service === 'premium').length;
+            const deluxeCount = bookings.filter(b => b.service === 'deluxe').length;
+            
+            const basicPercent = totalBookings ? Math.round((basicCount / totalBookings) * 100) : 0;
+            const premiumPercent = totalBookings ? Math.round((premiumCount / totalBookings) * 100) : 0;
+            const deluxePercent = totalBookings ? Math.round((deluxeCount / totalBookings) * 100) : 0;
+            
+            document.getElementById('serviceStats').innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600">Basic Wash</span>
+                    <span class="text-sm font-medium">${basicPercent}%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600">Premium Wash</span>
+                    <span class="text-sm font-medium">${premiumPercent}%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600">Deluxe Detail</span>
+                    <span class="text-sm font-medium">${deluxePercent}%</span>
+                </div>
+            `;
+        }
+
+        function updateBookingStatus(bookingId, newStatus) {
+            const booking = bookings.find(b => b.id === bookingId);
+            if (booking) {
+                booking.status = newStatus;
+                localStorage.setItem('aquashine_bookings', JSON.stringify(bookings));
+                updateDashboardStats();
+                updateRecentBookings();
+                updateBookingsTable();
+                updateReports();
+                showNotification('Status updated to ' + newStatus + ' successfully!');
+            }
+        }
+
+        function exportBookings() {
+            const csv = 'Name,Phone,Service,Date,Time,Address,Amount,Status\n' +
+                bookings.map(b => `${b.name},${b.phone},${getServiceName(b.service)},${b.date},${getTimeSlot(b.time)},${b.address},${b.amount},${b.status}`).join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'aquashine_bookings.csv';
+            a.click();
+        }
+
+        function exportCustomers() {
+            const csv = 'Name,Phone,Address,Total Bookings,Total Spent,Last Service\n' +
+                customers.map(c => `${c.name},${c.phone},${c.address},${c.totalBookings},${c.totalSpent},${c.lastService}`).join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'aquashine_customers.csv';
+            a.click();
+        }
+
+        function viewCustomerHistory(phone) {
+            const customerBookings = bookings.filter(b => b.phone === phone);
+            alert(`Customer has ${customerBookings.length} bookings. Feature coming soon!`);
+        }
+
+        function contactCustomer(phone) {
+            window.open(`tel:${phone}`);
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Helper functions
+        function getServiceName(service) {
+            const names = {
+                'basic': 'Basic Wash',
+                'premium': 'Premium Wash',
+                'deluxe': 'Deluxe Detail'
+            };
+            return names[service] || service;
+        }
+
+        function getTimeSlot(time) {
+            const slots = {
+                '9am': '9:00 AM - 11:00 AM',
+                '11am': '11:00 AM - 1:00 PM',
+                '1pm': '1:00 PM - 3:00 PM',
+                '3pm': '3:00 PM - 5:00 PM',
+                '5pm': '5:00 PM - 7:00 PM'
+            };
+            return slots[time] || time;
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-IN', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+
+        function getActionButtons(booking) {
+            if (booking.status === 'pending') {
+                return `
+                    <div class="flex space-x-2">
+                        <button onclick="updateBookingStatus(${booking.id}, 'confirmed')" class="text-green-600 hover:text-green-800">Confirm</button>
+                        <button onclick="updateBookingStatus(${booking.id}, 'cancelled')" class="text-red-600 hover:text-red-800">Cancel</button>
+                    </div>
+                `;
+            } else if (booking.status === 'confirmed') {
+                return `
+                    <div class="flex space-x-2">
+                        <button onclick="updateBookingStatus(${booking.id}, 'completed')" class="text-blue-600 hover:text-blue-800">Complete</button>
+                        <button onclick="updateBookingStatus(${booking.id}, 'cancelled')" class="text-red-600 hover:text-red-800">Cancel</button>
+                    </div>
+                `;
+            } else {
+                return '<button class="text-blue-600 hover:text-blue-800">View Details</button>';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970b39d506bf2963',t:'MTc1NTQ1NTI1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
